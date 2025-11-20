@@ -23,6 +23,7 @@ def main():
         log_state()
         dt = clock.tick(60) / 1000  # Limit to 60 FPS and get delta time
         player.draw(screen)
+        player.update(dt)
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
