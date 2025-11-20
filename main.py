@@ -1,6 +1,7 @@
 import pygame
 from constants import SCREEN_WIDTH, SCREEN_HEIGHT
 from logger import log_state
+from player import Player
 
 
 def main():
@@ -13,18 +14,23 @@ def main():
     clock = pygame.time.Clock()
     dt = 0
 
+    player = Player(SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2)
+
 
     while True:
         
         screen.fill("black")
         log_state()
+        dt = clock.tick(60) / 1000  # Limit to 60 FPS and get delta time
+        player.draw(screen)
+
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
 
         
         pygame.display.flip()
-        dt = clock.tick(60) / 1000  # Limit to 60 FPS and get delta time
+        
             
 
 
