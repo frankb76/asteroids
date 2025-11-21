@@ -37,6 +37,7 @@ def main():
         screen.fill("black")
         log_state()
         dt = clock.tick(60) / 1000  # Limit to 60 FPS and get delta time
+
         for item in updatable:
             item.update(dt)
 
